@@ -1,11 +1,7 @@
-import './App.css'
-
-function App() {
+export default function App() {
   return (
-    <div className="app">
-      <h1>Move to Gothenburg</h1>
-    </div>
+    <main>
+      <p>MTG design system foundations — open Storybook (<code>npm run storybook</code>) to view.</p>
+    </main>
   )
 }
-
-export default App
