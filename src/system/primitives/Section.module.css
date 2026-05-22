@@ -1,0 +1,21 @@
+.section {
+  background: var(--color-surface-page);
+  color: var(--color-text-default);
+}
+
+.spacing-sm { padding-block: var(--space-section-y-sm); }
+.spacing-md { padding-block: var(--space-section-y-md); }
+.spacing-lg { padding-block: var(--space-section-y-lg); }
+.spacing-xl { padding-block: var(--space-section-y-xl); }
+
+.bleed {
+  margin-inline: calc(var(--space-container-pad-sm) * -1);
+}
+
+@media (width >= 768px) {
+  .bleed { margin-inline: calc(var(--space-container-pad-md) * -1); }
+}
+
+@media (width >= 1200px) {
+  .bleed { margin-inline: calc(var(--space-container-pad-lg) * -1); }
+}
