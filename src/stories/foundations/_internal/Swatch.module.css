@@ -1,0 +1,18 @@
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack-tight);
+}
+
+.chip {
+  inline-size: 100%;
+  block-size: 96px;
+  border-radius: var(--radius-md);
+  border: var(--border-hairline) solid var(--color-border-subtle);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-grid-gutter-md);
+}
