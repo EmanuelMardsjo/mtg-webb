@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "color-no-hex": [true, { "severity": "error" }],
+    "custom-property-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "selector-class-pattern": null
+  },
+  "overrides": [
+    {
+      "files": ["src/tokens/**/*.css", "src/tokens/generated/**/*.css"],
+      "rules": {
+        "color-no-hex": null
+      }
+    }
+  ]
+}

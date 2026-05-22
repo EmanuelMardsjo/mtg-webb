@@ -18,4 +18,5 @@ export default defineConfig({
     css: true,
     include: ['src/**/*.test.{ts,tsx}']
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 } as any)
