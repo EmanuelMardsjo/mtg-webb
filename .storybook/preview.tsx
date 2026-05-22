@@ -1,0 +1,12 @@
+import type { Preview } from '@storybook/react'
+import '../src/system/styles/global.css'
+
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: { expanded: true },
+    layout: 'fullscreen'
+  }
+}
+
+export default preview
