@@ -1,0 +1,24 @@
+{/* src/stories/foundations/Introduction.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Introduction" />
+
+# Move to Gothenburg — Design System Foundations
+
+A token-driven foundation for a future Move to Gothenburg digital platform. Built to support content about international professionals, families, jobs, communities, and AI-assisted moving guidance.
+
+**This is foundations only.** Tokens, layout primitives, theming, motion, and example pages — not a production component library.
+
+## How to read this Storybook
+
+- **Foundations** — the building blocks: color, type, spacing, layout, theming, motion, accessibility.
+- **Examples** — _not production components._ Simple blocks that demonstrate the foundations.
+- **Pages** — assembled examples showing how the foundations create a cohesive editorial experience.
+
+Use the **Theme** toolbar to preview any story on bone / sky / clay / sage / ink / campaign surfaces. Use the **Reduced motion** toggle to verify accessible behavior.
+
+## Three rules the whole system enforces
+
+1. **No raw color, spacing, or font values in any component.** Only CSS vars.
+2. **Layout primitives are the only place spacing or themes are set.**
+3. **Theme variants remap semantic tokens, never re-style components.**

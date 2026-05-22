@@ -1,0 +1,36 @@
+{/* src/stories/foundations/TokensArchitecture.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Tokens & Architecture" />
+
+# Tokens & Architecture
+
+Tokens flow in one direction: **primitive → semantic → component**.
+
+## Layers
+
+- **Primitives** (`src/tokens/primitives/`) — raw values. Components never read these directly.
+- **Semantic** (`src/tokens/semantic/`) — usage and intent. Roles like `text-default`, `surface-page`, `section-y-lg`.
+- **Themes** (`src/tokens/themes/`) — complete remaps of semantic color roles. Applied via `[data-theme="..."]`.
+
+## Build
+
+```bash
+npm run tokens:build
+```
+
+Reads the TS token graph and emits:
+- `src/tokens/generated/tokens.css` — all primitives and semantic vars, plus a block per theme.
+- `src/tokens/generated/tokens.types.ts` — typed re-exports.
+
+The build fails if any theme's text-on-surface combination is below WCAG AA (4.5:1).
+
+## Adding a new theme
+
+One file. Add an entry to `src/tokens/themes/index.ts`; rebuild. No component changes.
+
+## Three discipline rules
+
+1. **No raw hex or px in `src/system/`.** Enforced by ESLint + Stylelint.
+2. **No new color tokens without a semantic role.**
+3. **A component never queries the theme.** Visuals come from CSS vars.
