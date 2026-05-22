@@ -1,0 +1,19 @@
+.root {
+  border-block-start: var(--border-hairline) solid var(--color-border-subtle);
+  border-block-end:   var(--border-hairline) solid var(--color-border-subtle);
+  padding-block: var(--space-stack-loose);
+}
+
+.summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker { display: none; }
+
+.body {
+  padding-block-start: var(--space-stack-default);
+}
