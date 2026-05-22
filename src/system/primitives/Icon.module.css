@@ -1,0 +1,25 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.size-sm {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+.size-md {
+  width: var(--icon-md);
+  height: var(--icon-md);
+}
+
+.size-lg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+}
