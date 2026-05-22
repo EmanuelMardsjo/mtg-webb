@@ -9,7 +9,12 @@
     {
       "files": ["src/tokens/**/*.css", "src/tokens/generated/**/*.css"],
       "rules": {
-        "color-no-hex": null
+        "color-no-hex": null,
+        "alpha-value-notation": null,
+        "color-function-notation": null,
+        "color-function-alias-notation": null,
+        "value-keyword-case": null,
+        "hue-degree-notation": null
       }
     }
   ]
