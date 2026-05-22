@@ -62,3 +62,13 @@
   background: var(--color-surface-page);
   color: var(--color-text-strong);
 }
+
+/* Storybook reduced-motion toggle */
+.force-reduced-motion *,
+.force-reduced-motion *::before,
+.force-reduced-motion *::after {
+  animation-duration: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0ms !important;
+  scroll-behavior: auto !important;
+}
