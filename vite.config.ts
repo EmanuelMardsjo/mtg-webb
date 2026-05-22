@@ -15,7 +15,11 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
-    css: true,
+    css: {
+      modules: {
+        classNameStrategy: 'non-scoped'
+      }
+    },
     include: ['src/**/*.test.{ts,tsx}']
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
