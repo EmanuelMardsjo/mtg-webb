@@ -1,0 +1,59 @@
+{/* src/stories/foundations/WiringToACMS.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Wiring to a CMS" />
+
+# Wiring to a CMS
+
+This system is foundations only — there is no CMS integration code in this repo. What follows documents the integration **shape** so future production blocks can be wired to Optimizely, Contentful, Sanity, Storyblok, or any headless CMS with the same patterns.
+
+## Three principles built into every example block
+
+1. **Content-shape first.** Every block accepts a typed content object — not props scattered across the call site.
+2. **Optional everything is optional.** Image, CTA, metadata, tags can all be absent. Blocks render gracefully.
+3. **Variable-length tolerant.** Short, medium, long, empty-optionals content variants are verified in every block's Storybook stories.
+
+## Block content type pattern
+
+```ts
+export type StoryTeaserContent = {
+  tag?: string
+  headline: string                       // required
+  excerpt?: string
+  image?: { src: string; alt: string; focalPoint?: 'top' | 'center' | 'bottom' }
+  byline?: { name: string; role?: string }
+  cta?: { label: string; href: string }
+  theme?: ThemeName                      // editor-authored
+}
+```
+
+## Adapter pattern
+
+```
+CMS response  →  adapter function  →  block content type  →  block renders
+```
+
+```ts
+// One adapter per block, lives next to the production block (future).
+function toStoryTeaserContent(cmsBlock: CmsContentArea): StoryTeaserContent {
+  return {
+    tag:      cmsBlock.fields.tag,
+    headline: cmsBlock.fields.headline,
+    excerpt:  cmsBlock.fields.excerpt,
+    image:    cmsBlock.fields.image && {
+      src: cmsBlock.fields.image.url,
+      alt: cmsBlock.fields.image.altText ?? '',
+      focalPoint: cmsBlock.fields.image.focalPoint ?? 'center'
+    },
+    byline:   cmsBlock.fields.author && { name: cmsBlock.fields.author.name, role: cmsBlock.fields.author.role },
+    cta:      cmsBlock.fields.cta?.url && { label: cmsBlock.fields.cta.label, href: cmsBlock.fields.cta.url },
+    theme:    cmsBlock.fields.theme
+  }
+}
+```
+
+Adapters live in a future `src/cms/adapters/` folder when a CMS is chosen. The example blocks today have no `cms/` folder — that's deliberate. The integration boundary is just **one type per block**.
+
+## Editor-authored theming
+
+Editors should be able to set a block's `theme` from a CMS dropdown matching the keys in `src/tokens/themes/index.ts`. The block renders the chosen theme via the `theme` prop on `<Section>`.

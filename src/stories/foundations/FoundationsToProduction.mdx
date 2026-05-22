@@ -1,0 +1,36 @@
+{/* src/stories/foundations/FoundationsToProduction.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/From foundations to production" />
+
+# From foundations to production
+
+This is the path forward, in order. Each step is independent and can ship behind its own decision.
+
+## 1. Choose a CMS
+
+When Optimizely (or other) is picked, scaffold `src/cms/` with one adapter per block. Adapters convert CMS responses to the existing content types.
+
+## 2. Promote one example block to production at a time
+
+- Move from `src/system/examples/` to `src/blocks/`.
+- Add the adapter.
+- Add real-data Storybook stories alongside the existing variant stories.
+- Add unit + a11y tests against real-data fixtures.
+- Drop the `// EXAMPLE` header.
+
+## 3. Page templates emerge from CMS page types
+
+A page template is just an ordered list of blocks + a default theme. No new foundation work is needed. The example pages in `src/stories/pages/` show the shape.
+
+## 4. Component-level tokens only when truly needed
+
+Token architecture supports a third layer (`component/`). Keep it empty until a production block proves it requires its own tokens not already covered semantically.
+
+## 5. AI companion as a real surface
+
+The `AICompanionTeaser` becomes a real interactive surface (chat, recommendation). The `ink` and `campaign` themes already handle its visual treatment. The foundation supports it.
+
+## 6. Personalization & recommendations
+
+Blocks already accept content objects — a recommendation engine just supplies different content. No layout work needed.
