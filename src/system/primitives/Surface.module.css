@@ -1,0 +1,4 @@
+.surface {
+  background: var(--color-surface-page);
+  color: var(--color-text-default);
+}

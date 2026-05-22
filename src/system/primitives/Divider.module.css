@@ -1,0 +1,12 @@
+.divider {
+  border: 0;
+  margin: 0;
+  height: var(--border-hairline);
+  background: var(--color-border-subtle);
+  width: 100%;
+}
+
+.weight-strong {
+  height: var(--border-strong);
+  background: var(--color-border-strong);
+}
