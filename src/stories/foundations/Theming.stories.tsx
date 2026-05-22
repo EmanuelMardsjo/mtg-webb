@@ -37,26 +37,28 @@ function Demo({ active }: { active: ThemeName | null }) {
   return null
 }
 
-export const InteractiveOverride: S = {
-  render: () => {
-    const [active, setActive] = useState<ThemeName | null>(null)
-    return (
-      <Section spacing="lg">
-        <Container>
-          <Stack gap="loose">
-            <Text role="display" as="h1">Interactive override</Text>
-            <Text role="lead">Toggle a theme below. The entire page re-skins via <code>useThemeOverride</code>. Toggle off to revert.</Text>
-            <Stack gap="default" align="start">
-              {(['sky','clay','sage','ink'] as ThemeName[]).map(t => (
-                <TextLink key={t} href="#" onClick={(e) => { e.preventDefault(); setActive(active === t ? null : t) }}>
-                  {active === t ? `Clear ${t}` : `Apply ${t}`}
-                </TextLink>
-              ))}
-            </Stack>
+function InteractiveOverrideRender() {
+  const [active, setActive] = useState<ThemeName | null>(null)
+  return (
+    <Section spacing="lg">
+      <Container>
+        <Stack gap="loose">
+          <Text role="display" as="h1">Interactive override</Text>
+          <Text role="lead">Toggle a theme below. The entire page re-skins via <code>useThemeOverride</code>. Toggle off to revert.</Text>
+          <Stack gap="default" align="start">
+            {(['sky','clay','sage','ink'] as ThemeName[]).map(t => (
+              <TextLink key={t} href="#" onClick={(e) => { e.preventDefault(); setActive(active === t ? null : t) }}>
+                {active === t ? `Clear ${t}` : `Apply ${t}`}
+              </TextLink>
+            ))}
           </Stack>
-        </Container>
-        <Demo active={active} />
-      </Section>
-    )
-  }
+        </Stack>
+      </Container>
+      <Demo active={active} />
+    </Section>
+  )
+}
+
+export const InteractiveOverride: S = {
+  render: () => <InteractiveOverrideRender />
 }
