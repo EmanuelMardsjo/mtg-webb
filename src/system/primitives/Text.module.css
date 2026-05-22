@@ -1,0 +1,112 @@
+.text {
+  margin: 0;
+  color: inherit;
+}
+
+.role-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-5xl);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--fw-display-medium);
+}
+
+.role-hero {
+  font-family: var(--font-display);
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--tracking-hero);
+  font-weight: var(--fw-display-medium);
+}
+
+.role-h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--tracking-h1);
+  font-weight: var(--fw-display-medium);
+}
+
+.role-h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--tracking-h2);
+  font-weight: var(--fw-display-medium);
+}
+
+.role-h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--tracking-none);
+  font-weight: var(--fw-display-medium);
+}
+
+.role-lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-lead);
+  letter-spacing: var(--tracking-none);
+  font-weight: var(--fw-body-regular);
+}
+
+.role-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body-regular);
+}
+
+.role-bodysm {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body-regular);
+}
+
+.role-caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-meta);
+  letter-spacing: var(--tracking-caption);
+  font-weight: var(--fw-body-regular);
+}
+
+.role-meta {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-meta);
+  font-weight: var(--fw-body-regular);
+  font-feature-settings: 'ss01', 'tnum';
+}
+
+.role-tag {
+  font-family: var(--font-body);
+  font-size: var(--fs-2xs);
+  line-height: var(--lh-tag);
+  letter-spacing: var(--tracking-tag);
+  font-weight: var(--fw-body-medium);
+  text-transform: uppercase;
+}
+
+.role-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-quote);
+  letter-spacing: var(--tracking-quote);
+  font-weight: var(--fw-body-regular);
+  font-style: italic;
+}
+
+.role-button {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-button);
+  letter-spacing: var(--tracking-button);
+  font-weight: var(--fw-body-medium);
+}
+
+.tone-strong  { color: var(--color-text-strong); }
+.tone-default { color: var(--color-text-default); }
+.tone-muted   { color: var(--color-text-muted); }
