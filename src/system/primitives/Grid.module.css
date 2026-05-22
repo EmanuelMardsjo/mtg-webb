@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-grid-gutter-sm);
+}
+
+@media (width >= 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-grid-gutter-md);
+  }
+}
+
+@media (width >= 1200px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-grid-gutter-lg);
+  }
+}

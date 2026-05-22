@@ -1,0 +1,15 @@
+.col {
+  grid-column: span var(--col-span-sm, 1);
+}
+
+@media (width >= 768px) {
+  .col {
+    grid-column: span var(--col-span-md, 2);
+  }
+}
+
+@media (width >= 1200px) {
+  .col {
+    grid-column: var(--col-start-lg, auto) / span var(--col-span-lg, 5);
+  }
+}
