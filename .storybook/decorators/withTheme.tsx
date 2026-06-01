@@ -5,14 +5,14 @@ function ThemeApplier({ theme, children }: { theme: string; children: ReactEleme
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     return () => {
-      document.documentElement.setAttribute('data-theme', 'bone')
+      document.documentElement.setAttribute('data-theme', 'neutral')
     }
   }, [theme])
   return children
 }
 
 export const withTheme: Decorator = (Story, context) => {
-  const theme = context.globals.theme ?? 'bone'
+  const theme = context.globals.theme ?? 'neutral'
   return (
     <ThemeApplier theme={theme}>
       <Story />

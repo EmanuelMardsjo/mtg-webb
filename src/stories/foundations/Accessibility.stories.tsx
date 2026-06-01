@@ -12,7 +12,7 @@ export const FocusStates: S = {
       <Container>
         <Stack gap="loose">
           <Text role="display" as="h1">Focus states</Text>
-          <Text role="lead">Tab through the controls below. The focus ring uses sky-400 on every theme; switch themes in the toolbar.</Text>
+          <Text role="lead">Tab through the controls below. The focus ring is theme-defined; switch themes in the toolbar.</Text>
           <Inline gap="loose" wrap>
             <button>Button</button>
             <a href="#">Native link</a>

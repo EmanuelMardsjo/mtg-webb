@@ -21,7 +21,7 @@ export const EmptyOptionals: S = { args: { content: { heading: 'Pre-arrival', it
 export const ThemeVariants: S = {
   render: () => (
     <Stack gap="tight">
-      {(['bone','clay','sage'] as ThemeName[]).map(t => (
+      {(['neutral','pink','yellow'] as ThemeName[]).map(t => (
         <ChecklistTeaser key={t} content={{ heading: `Theme: ${t}`, items: items.slice(0,3), theme: t }} />
       ))}
     </Stack>

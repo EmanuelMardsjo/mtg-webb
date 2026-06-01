@@ -2,12 +2,19 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Section, Container, Stack, Text, TextLink } from '@system/primitives'
 import { useThemeOverride } from '@system/hooks'
-import { themeNames, type ThemeName } from '@tokens/themes'
+import type { ThemeName } from '@tokens/themes'
 
 const meta: Meta = { title: 'Foundations/Theming' }
 export default meta
 
 type S = StoryObj
+
+const themeGroups = [
+  { label: 'Neutral', themes: ['neutral', 'neutral-raised', 'neutral-dark'] },
+  { label: 'Soft', themes: ['blue-soft', 'yellow-soft', 'pink-soft'] },
+  { label: 'Base', themes: ['blue', 'yellow', 'amber', 'pink'] },
+  { label: 'Deep', themes: ['blue-deep', 'amber-deep'] }
+] satisfies { label: string; themes: readonly ThemeName[] }[]
 
 function ThemedRow({ theme }: { theme: ThemeName }) {
   return (
@@ -26,8 +33,17 @@ function ThemedRow({ theme }: { theme: ThemeName }) {
 
 export const AllThemes: S = {
   render: () => (
-    <Stack gap="tight">
-      {themeNames.filter(n => n !== 'campaign').map(t => <ThemedRow key={t} theme={t} />)}
+    <Stack gap="loose">
+      {themeGroups.map(group => (
+        <Stack key={group.label} gap="tight">
+          <Section spacing="md">
+            <Container>
+              <Text role="h3" as="h2">{group.label}</Text>
+            </Container>
+          </Section>
+          {group.themes.map(t => <ThemedRow key={t} theme={t} />)}
+        </Stack>
+      ))}
     </Stack>
   )
 }
@@ -46,7 +62,7 @@ function InteractiveOverrideRender() {
           <Text role="display" as="h1">Interactive override</Text>
           <Text role="lead">Toggle a theme below. The entire page re-skins via <code>useThemeOverride</code>. Toggle off to revert.</Text>
           <Stack gap="default" align="start">
-            {(['sky','clay','sage','ink'] as ThemeName[]).map(t => (
+            {(['blue-soft','blue','blue-deep','yellow','amber','amber-deep','pink','neutral-dark'] as ThemeName[]).map(t => (
               <TextLink key={t} href="#" onClick={(e) => { e.preventDefault(); setActive(active === t ? null : t) }}>
                 {active === t ? `Clear ${t}` : `Apply ${t}`}
               </TextLink>

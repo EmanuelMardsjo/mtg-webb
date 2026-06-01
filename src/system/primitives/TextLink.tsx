@@ -11,7 +11,7 @@ export function TextLink({ arrow, className, children, ...rest }: TextLinkProps)
   return (
     <a className={[s.link, className].filter(Boolean).join(' ')} {...rest}>
       <span>{children}</span>
-      {arrow && <Icon name="arrow-right" size="sm" aria-hidden />}
+      {arrow && <Icon name="arrow-right" size="md" aria-hidden />}
     </a>
   )
 }

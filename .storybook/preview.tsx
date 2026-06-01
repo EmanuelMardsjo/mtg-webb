@@ -18,7 +18,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Foundations', ['Introduction', 'Tokens & Architecture', 'Color', 'Typography', 'Spacing & Sizing', 'Layout & 5-Column Grid', 'Theming', 'Motion', 'Accessibility'], 'Examples', 'Pages']
+        order: ['Foundations', ['Introduction', 'Brand', 'Image Bank', 'Tokens & Architecture', 'Color', 'Typography', 'Spacing & Sizing', 'Layout & 5-Column Grid', 'Theming', 'Motion', 'Accessibility'], 'Examples', 'Pages']
       }
     }
   },
@@ -26,18 +26,24 @@ const preview: Preview = {
     theme: {
       name: 'Theme',
       description: 'Sets data-theme on <html>',
-      defaultValue: 'bone',
+      defaultValue: 'neutral',
       toolbar: {
         icon: 'paintbrush',
         title: 'Theme',
         items: [
-          { value: 'bone',        title: 'Bone (default)' },
-          { value: 'bone-raised', title: 'Bone raised' },
-          { value: 'sky',         title: 'Sky' },
-          { value: 'clay',        title: 'Clay' },
-          { value: 'sage',        title: 'Sage' },
-          { value: 'ink',         title: 'Ink' },
-          { value: 'campaign',    title: 'Campaign (fallback)' }
+          { value: 'neutral',        title: 'Neutral (default)' },
+          { value: 'neutral-raised', title: 'Neutral raised' },
+          { value: 'neutral-dark',   title: 'Neutral dark' },
+          { value: 'blue-soft',      title: 'Blue soft' },
+          { value: 'blue',           title: 'Blue' },
+          { value: 'blue-deep',      title: 'Blue deep' },
+          { value: 'yellow-soft',    title: 'Yellow soft' },
+          { value: 'yellow',         title: 'Yellow' },
+          { value: 'amber',          title: 'Amber' },
+          { value: 'amber-deep',     title: 'Amber deep' },
+          { value: 'pink-soft',      title: 'Pink soft' },
+          { value: 'pink',           title: 'Pink' },
+          { value: 'campaign',       title: 'Campaign (fallback)' }
         ],
         dynamicTitle: true
       }

@@ -5,16 +5,16 @@ import { ThemeOverrideProvider, useThemeOverride } from './ThemeOverride'
 
 type Handle<T> = { current: T | null }
 
-function TestConsumer({ theme }: { theme: 'sky' | 'clay' | null }) {
+function TestConsumer({ theme }: { theme: 'blue' | 'pink' | null }) {
   useThemeOverride(theme)
   return null
 }
 
 function App({ initial, handleRef }: {
-  initial: 'sky' | 'clay' | null
-  handleRef?: Ref<{ setTheme: (t: 'sky' | 'clay' | null) => void }>
+  initial: 'blue' | 'pink' | null
+  handleRef?: Ref<{ setTheme: (t: 'blue' | 'pink' | null) => void }>
 }) {
-  const [theme, setTheme] = useState<'sky' | 'clay' | null>(initial)
+  const [theme, setTheme] = useState<'blue' | 'pink' | null>(initial)
   useImperativeHandle(handleRef, () => ({ setTheme }), [])
   return (
     <ThemeOverrideProvider>
@@ -29,21 +29,21 @@ describe('ThemeOverride', () => {
   })
 
   it('sets data-theme on body when an override is active', () => {
-    render(<App initial="sky" />)
-    expect(document.body.getAttribute('data-theme')).toBe('sky')
+    render(<App initial="blue" />)
+    expect(document.body.getAttribute('data-theme')).toBe('blue')
   })
 
   it('removes data-theme when override clears', () => {
-    const handle: Handle<{ setTheme: (t: 'sky' | 'clay' | null) => void }> = { current: null }
-    render(<App initial="sky" handleRef={handle} />)
+    const handle: Handle<{ setTheme: (t: 'blue' | 'pink' | null) => void }> = { current: null }
+    render(<App initial="blue" handleRef={handle} />)
     act(() => { handle.current?.setTheme(null) })
     expect(document.body.hasAttribute('data-theme')).toBe(false)
   })
 
   it('most recently pushed override wins when multiple are active', () => {
     function Two() {
-      useThemeOverride('sky')
-      useThemeOverride('clay')
+      useThemeOverride('blue')
+      useThemeOverride('pink')
       return null
     }
     render(
@@ -51,16 +51,16 @@ describe('ThemeOverride', () => {
         <Two />
       </ThemeOverrideProvider>
     )
-    expect(document.body.getAttribute('data-theme')).toBe('clay')
+    expect(document.body.getAttribute('data-theme')).toBe('pink')
   })
 
   it('reverts to previous override after newest pops', () => {
     function Switcher({ showSecond }: { showSecond: boolean }) {
-      useThemeOverride('sky')
+      useThemeOverride('blue')
       return showSecond ? <Inner /> : null
     }
     function Inner() {
-      useThemeOverride('clay')
+      useThemeOverride('pink')
       return null
     }
     function Wrapper({ handleRef }: {
@@ -76,8 +76,8 @@ describe('ThemeOverride', () => {
     }
     const handle: Handle<{ hide: () => void }> = { current: null }
     render(<Wrapper handleRef={handle} />)
-    expect(document.body.getAttribute('data-theme')).toBe('clay')
+    expect(document.body.getAttribute('data-theme')).toBe('pink')
     act(() => { handle.current?.hide() })
-    expect(document.body.getAttribute('data-theme')).toBe('sky')
+    expect(document.body.getAttribute('data-theme')).toBe('blue')
   })
 })

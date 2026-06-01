@@ -6,7 +6,7 @@ import { ThemedAccordion } from './ThemedAccordion'
 function setup() {
   return render(
     <ThemeOverrideProvider>
-      <ThemedAccordion content={{ theme: 'clay', summary: 'Family' }}>
+      <ThemedAccordion content={{ theme: 'pink', summary: 'Family' }}>
         <div>Inner</div>
       </ThemedAccordion>
     </ThemeOverrideProvider>
@@ -25,13 +25,13 @@ describe('ThemedAccordion', () => {
     expect(document.body.hasAttribute('data-theme')).toBe(false)
   })
 
-  it('sets page theme to clay when opened', () => {
+  it('sets page theme to pink when opened', () => {
     document.body.removeAttribute('data-theme')
     const { container } = setup()
     const details = container.querySelector('details')!
     // jsdom doesn't toggle <details> on click — set open and fire toggle
     details.open = true
     fireEvent(details, new Event('toggle'))
-    expect(document.body.getAttribute('data-theme')).toBe('clay')
+    expect(document.body.getAttribute('data-theme')).toBe('pink')
   })
 })

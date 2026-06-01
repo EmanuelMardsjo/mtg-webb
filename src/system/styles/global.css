@@ -4,7 +4,7 @@
 @import url("./fonts.css");
 @import url("./reset.css");
 
-/* Global focus state — sky-400 ring on every theme */
+/* Global focus state — each theme supplies its own ring color */
 :focus-visible {
   outline: var(--border-strong) solid var(--color-focus-ring);
   outline-offset: 3px;
@@ -60,7 +60,7 @@
   clip-path: none;
   white-space: normal;
   background: var(--color-surface-page);
-  color: var(--color-text-strong);
+  color: var(--color-text-default);
 }
 
 /* Storybook reduced-motion toggle */

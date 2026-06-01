@@ -21,9 +21,9 @@ const jobs = [
 export const Page: S = {
   render: () => (
     <>
-      <HeroText content={{ eyebrow: 'Industry & careers', headline: 'Purposeful work in a small, ambitious region.', lead: 'West Sweden punches above its weight in automotive, life sciences, energy, and digital.', cta: { label: 'See open roles', href: '#' }, theme: 'bone' }} />
-      <ImageText content={{ headline: 'Companies that take craft seriously.', body: 'From Volvo to AstraZeneca, from SKF to small studios — the work here matters.', image: IMAGES.industry, theme: 'ink', bleed: true }} />
-      <Section spacing="lg" theme="bone">
+      <HeroText content={{ eyebrow: 'Industry & careers', headline: 'Purposeful work in a small, ambitious region.', lead: 'West Sweden punches above its weight in automotive, life sciences, energy, and digital.', cta: { label: 'See open roles', href: '#' }, theme: 'neutral' }} />
+      <ImageText content={{ headline: 'Companies that take craft seriously.', body: 'From Volvo to AstraZeneca, from SKF to small studios — the work here matters.', image: IMAGES.industry, theme: 'neutral-dark', bleed: true }} />
+      <Section spacing="lg" theme="neutral">
         <Container>
           <Grid>
             <Col span={{ lg: 1 }}>
@@ -40,13 +40,13 @@ export const Page: S = {
           </Grid>
         </Container>
       </Section>
-      <StoryTeaser content={{ tag: 'Stories', headline: 'A senior engineer\'s first year.', excerpt: 'Marek moved from Warsaw in 2023. He reflects on what he wishes he had known before his first standup.', image: IMAGES.portrait, byline: { name: 'Marek J.', role: 'Senior Engineer' }, cta: { label: 'Read', href: '#' }, theme: 'sky' }} />
+      <StoryTeaser content={{ tag: 'Stories', headline: 'A senior engineer\'s first year.', excerpt: 'Marek moved from Warsaw in 2023. He reflects on what he wishes he had known before his first standup.', image: IMAGES.portrait, byline: { name: 'Marek J.', role: 'Senior Engineer' }, cta: { label: 'Read', href: '#' }, theme: 'blue' }} />
       <Signpost content={{ heading: 'Industry hubs', items: [
         { label: 'Automotive', href: '#' },
         { label: 'Life sciences', href: '#' },
         { label: 'Digital & game dev', href: '#' },
         { label: 'Energy & cleantech', href: '#' }
-      ], theme: 'bone' }} />
+      ], theme: 'neutral' }} />
     </>
   )
 }

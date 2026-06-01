@@ -1,18 +1,24 @@
 /* src/system/styles/fonts.css
  *
- * Font loading path: Fontshare CDN.
+ * Font loading path: self-hosted WOFF2 files under public/fonts/.
  *
- * Cabinet Grotesk and Satoshi are Indian Type Foundry typefaces distributed
- * via Fontshare. As of this commit neither is published to npm under
- * @fontsource or @fontsource-variable (both 404 on the npm registry), and
- * Fontshare's official download flow is gated behind a web UI with no clean
- * CLI path. We therefore load both families via the Fontshare CSS API for
- * foundations stage. This is trivially swappable later for self-hosted WOFF2
- * files under public/fonts/ when we move to a designed production setup.
- *
- * Weights pulled:
- *   - cabinet-grotesk: 300 (light, display), 500 (medium, display emphasis)
- *   - satoshi:         400 (regular body), 500 (medium body), 400i (italic)
+ * Typography split:
+ *   - PP Telegraf Ultrabold for display, hero, h1, and h2.
+ *   - PP Object Sans Regular for h3 and all remaining text roles.
  */
 
-@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@300,500&f[]=satoshi@400,500,400i&display=swap");
+@font-face {
+  font-family: "PP Telegraf";
+  src: url("/fonts/pp-telegraf/PPTelegraf-Ultrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Object Sans";
+  src: url("/fonts/pp-object-sans/PPObjectSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

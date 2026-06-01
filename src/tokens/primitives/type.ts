@@ -1,17 +1,19 @@
 // src/tokens/primitives/type.ts
 
 export const fontFamily = {
-  display: `'Cabinet Grotesk', 'Inter', system-ui, sans-serif`,
-  body:    `'Satoshi', 'Inter', system-ui, sans-serif`
+  display: `'PP Telegraf', 'Inter', system-ui, sans-serif`,
+  body:    `'PP Object Sans', 'Inter', system-ui, sans-serif`
 } as const
 
 export const fontWeight = {
-  // Cabinet Grotesk
-  'display-light':  300,
-  'display-medium': 500,
-  // Satoshi
+  // PP Telegraf
+  'display-ultrabold': 800,
+  // Compatibility alias for existing CSS var consumers.
+  'display-medium':    800,
+  // PP Object Sans Regular
   'body-regular':   400,
-  'body-medium':    500
+  // Compatibility alias for existing CSS var consumers.
+  'body-medium':    400
 } as const
 
 // Fluid clamp() scale — readable from 320px to 2560px viewport.
@@ -51,7 +53,7 @@ export const tracking = {
   h2:      '-0.005em',
   none:    '0',
   caption: '0.01em',
-  button:  '0.02em',
+  button:  '0',
   tag:     '0.08em',
   quote:   '-0.005em'
 } as const

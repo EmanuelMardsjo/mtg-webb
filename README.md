@@ -44,4 +44,4 @@ See `docs/superpowers/specs/2026-05-22-mtg-design-system-foundations-design.md` 
 
 ## Tech
 
-React 18 · Vite 5 · TypeScript 5 · Vitest · Storybook 8 · CSS Modules · Cabinet Grotesk + Satoshi.
+React 18 · Vite 5 · TypeScript 5 · Vitest · Storybook 8 · CSS Modules · PP Telegraf + PP Object Sans.

@@ -8,7 +8,7 @@ export type AICompanionTeaserProps = { content: AICompanionTeaserContent }
 
 export function AICompanionTeaser({ content }: AICompanionTeaserProps) {
   return (
-    <Section theme={content.theme ?? 'ink'} spacing="xl">
+    <Section theme={content.theme ?? 'neutral-dark'} spacing="xl">
       <Container>
         <Grid>
           <Col span={{ sm: 1, md: 2, lg: 5 }}>

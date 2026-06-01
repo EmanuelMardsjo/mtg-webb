@@ -13,10 +13,10 @@ describe('AICompanionTeaser', () => {
     expect(screen.getByText(/How much does childcare cost\?/)).toBeInTheDocument()
   })
 
-  it('renders on ink theme by default', () => {
+  it('renders on neutral-dark theme by default', () => {
     const { container } = render(<AICompanionTeaser content={{
       headline: 'x', prompt: 'y', cta: { label: 'go', href: '/' }
     }} />)
-    expect(container.firstChild).toHaveAttribute('data-theme', 'ink')
+    expect(container.firstChild).toHaveAttribute('data-theme', 'neutral-dark')
   })
 })

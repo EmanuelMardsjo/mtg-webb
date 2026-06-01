@@ -14,8 +14,8 @@ describe('Section', () => {
   })
 
   it('sets data-theme attribute when theme prop is given', () => {
-    const { container } = render(<Section theme="clay">x</Section>)
-    expect(container.firstChild).toHaveAttribute('data-theme', 'clay')
+    const { container } = render(<Section theme="pink">x</Section>)
+    expect(container.firstChild).toHaveAttribute('data-theme', 'pink')
   })
 
   it('does not set data-theme when prop omitted', () => {

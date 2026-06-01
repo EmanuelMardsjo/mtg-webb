@@ -3,6 +3,11 @@
   align-items: center;
   gap: var(--space-inline-default);
   color: inherit;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-display-ultrabold);
+  line-height: var(--lh-button);
+  letter-spacing: var(--tracking-button);
   text-decoration: none;
   border-bottom: var(--border-thin) solid var(--color-accent-line);
   padding-block-end: 2px;

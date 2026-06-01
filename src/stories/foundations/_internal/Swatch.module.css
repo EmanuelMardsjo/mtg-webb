@@ -11,6 +11,29 @@
   border: var(--border-hairline) solid var(--color-border-subtle);
 }
 
+.brand .chip {
+  border: var(--border-strong) solid var(--color-text-default);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-inline-default);
+}
+
+.tag {
+  flex: 0 0 auto;
+  border: var(--border-hairline) solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  color: var(--color-text-default);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-body-regular);
+  line-height: var(--lh-tight);
+}
+
 .row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
