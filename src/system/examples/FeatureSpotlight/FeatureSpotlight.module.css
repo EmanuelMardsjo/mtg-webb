@@ -1,0 +1,88 @@
+/* Frame radius = 2× radius-lg, mirrors the brand canvas (the spec's --cardradius is not a token). */
+
+/* Default parallax vars so SSR/no-JS is static; the useParallax hook overwrites them. */
+.root {
+  --parallax-text: 0px;
+  --parallax-frame: 0px;
+  --parallax-img: 0px;
+}
+
+/* Parallax text layer — restrained translateY only, consumed from the hook's CSS var. */
+.editorial {
+  transform: translate3d(0, var(--parallax-text), 0);
+}
+
+/* ---------- Media frame (also a parallax layer) ---------- */
+.frame {
+  border-radius: calc(var(--radius-lg) * 2);
+  overflow: clip;
+  background: var(--color-surface-raised);
+  aspect-ratio: 1312 / 611;
+  margin: 0;
+  transform: translate3d(0, var(--parallax-frame), 0);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translate3d(0, var(--parallax-img), 0);
+}
+
+@media (width < 768px) {
+  .frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ---------- Staggered rise entrance ----------
+   Visible end-state is the base; the hidden pre-state only applies before reveal
+   (so no-JS / no-IntersectionObserver baselines still show content). */
+.rise {
+  transition:
+    opacity var(--motion-reveal-duration) var(--motion-reveal-easing) var(--rise-d, 0ms),
+    transform var(--motion-reveal-duration) var(--motion-reveal-easing) var(--rise-d, 0ms);
+}
+
+.root:not(.revealed) .rise {
+  opacity: 0;
+  transform: translateY(var(--space-3));
+}
+
+/* ---------- Filled-pill CTA (accent by inversion) ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-inline-default);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-text-default);
+  color: var(--color-surface-page);
+  text-decoration: none;
+  transition:
+    opacity var(--motion-hover-duration) var(--motion-hover-easing),
+    transform var(--motion-hover-duration) var(--motion-hover-easing);
+}
+
+@media (hover: hover) {
+  .cta:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+}
+
+/* ---------- Reduced motion: fully static, content visible ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .editorial,
+  .frame,
+  .frame img {
+    transform: none !important;
+  }
+}
