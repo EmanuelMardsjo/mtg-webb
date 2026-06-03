@@ -37,7 +37,7 @@ Plans:
 - [x] 01-02-PLAN.md — FeatureSpotlight example block (type, component, CSS module, story, test, barrel)
 
 ### Phase 2: Footer + CTA block
-**Goal**: Adapt `footer-cta` (variant a) into a DS example — a "runway" editorial lead-in plus a footer zone with one dominant CTA pill over a glow/watermark backdrop.
+**Goal**: Adapt `footer-cta` (variant a) into a DS example — a "runway" editorial lead-in plus a footer zone with one dominant outlined CTA pill over the warmed `amber` end-state, with footer chrome (wordmark + columns + legal bar).
 **Depends on**: Phase 1 (reuses established import pattern)
 **Requirements**: REQ-01, REQ-02, REQ-03, REQ-05, REQ-06
 **Success Criteria** (what must be TRUE):
@@ -45,10 +45,11 @@ Plans:
   2. Exactly one dominant CTA per the editorial guardrails; backdrop built from tokens
   3. Visually faithful to CTA pill variant a
   4. Storybook story + passing tests
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD (set during plan-phase)
+- [ ] 02-01-PLAN.md — FooterCtaContent type + FooterCta component (runway + amber footer zone + CTA pill + footer chrome, wired to useReveal)
+- [ ] 02-02-PLAN.md — CSS module (token-only pill/button/frame/footer grid/reveal) + story (amber + amber-deep) + test + barrel
 
 ### Phase 3: Crash Course block
 **Goal**: Adapt `crash-c` (variant C) into a DS example — a horizontal scroll-snap card rail with dot indicators and keyboard navigation.
@@ -86,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 2. Footer + CTA | v1.1 | 0/TBD | Not started | - |
+| 2. Footer + CTA | v1.1 | 0/2 | Not started | - |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
