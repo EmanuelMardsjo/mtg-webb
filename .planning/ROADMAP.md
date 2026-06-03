@@ -48,7 +48,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — FooterCtaContent type + FooterCta component (runway + amber footer zone + CTA pill + footer chrome, wired to useReveal)
+- [x] 02-01-PLAN.md — FooterCtaContent type + FooterCta component (runway + amber footer zone + CTA pill + footer chrome, wired to useReveal)
 - [ ] 02-02-PLAN.md — CSS module (token-only pill/button/frame/footer grid/reveal) + story (amber + amber-deep) + test + barrel
 
 ### Phase 3: Crash Course block
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 2. Footer + CTA | v1.1 | 0/2 | Not started | - |
+| 2. Footer + CTA | v1.1 | 1/2 | In Progress|  |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
