@@ -1,10 +1,11 @@
 ---
 phase: 3
 slug: crash-course-block
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-06-03
+reviewed_at: 2026-06-03
 ---
 
 # Phase 3 — UI Design Contract
@@ -189,8 +190,8 @@ The DS spacing scale is fixed by `src/tokens/primitives/space.ts` (base 4px, 8-p
 | `--space-stack-default` | 16px (`space[4]`) | Track gap between cards (source `.ccx__track gap: clamp(16,1.5vw,22px)` → `default`); card caption internal gap (source `.ccx__cap gap: 9px` → snap to 16px reads premium, or `--space-stack-snug` 12px if tighter is wanted) |
 | `--space-stack-snug` | 12px (`space[3]`) | Card caption internal gap (alternative to `default` — source `gap: 9px`) and card inner padding inset |
 | `--space-inline-default` | 8px | "Read more" label → arrow gap (source `.ccx__more gap: 6px`); dot-to-dot gap (source `.ccx__dots gap: 9px` → 8px token) |
-| `--space-5` / `--space-3` | 24px / 12px | Card caption inset from card edges (source `.ccx__cap left/right/bottom: clamp(16–24px)`) |
-| `--space-4` | 20px | Control row gap between dots cluster and nav cluster (source `.ccx__controls gap: var(--space-4,20px)`) |
+| `--space-stack-loose` / `--space-stack-snug` | 24px / 12px | Card caption inset from card edges (source `.ccx__cap left/right/bottom: clamp(16–24px)`) — expressed via semantic roles, not raw `space[N]` |
+| `--space-content-gap` | 32px (`space[6]`) | Control row gap between dots cluster and nav cluster (source `.ccx__controls gap: var(--space-4,20px)` — the source's 20px CSS fallback is OFF-SCALE; snap up to the standard 32px cluster-separation token) |
 | `--space-container-pad-{sm,md,lg}` | 16 / 32 / 64px | Responsive horizontal padding (via Container) — source `.ccx__wrap` is `92vw` capped at 1280px |
 
 Card **dimensions** (size + radius) are *not* spacing-scale values; they are layout values expressed with `clamp()` + `calc(var(--radius-lg) * N)` in block-local CSS (see Interaction Notes). The 8-point scale governs gaps/padding/rhythm only.
