@@ -33,7 +33,7 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — useParallax hook (rAF scroll parallax, reduced-motion guard, barrel export) + test
+- [x] 01-01-PLAN.md — useParallax hook (rAF scroll parallax, reduced-motion guard, barrel export) + test
 - [ ] 01-02-PLAN.md — FeatureSpotlight example block (type, component, CSS module, story, test, barrel)
 
 ### Phase 2: Footer + CTA block
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 1. Live-the-life Feature | v1.1 | 0/2 | Not started | - |
+| 1. Live-the-life Feature | v1.1 | 1/2 | In Progress|  |
 | 2. Footer + CTA | v1.1 | 0/TBD | Not started | - |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
