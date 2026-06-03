@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { duration, easing } from '../primitives/motion'
 import { emitTokensCss } from './emit'
 
 describe('emitTokensCss', () => {
@@ -41,6 +42,20 @@ describe('emitTokensCss', () => {
   it('emits motion role vars', () => {
     expect(css).toContain('--motion-hover-duration:')
     expect(css).toContain('--motion-hover-easing:')
+  })
+
+  it('keeps motion primitives to three speeds and one shared curve', () => {
+    expect(duration).toEqual({
+      fast: '200ms',
+      base: '400ms',
+      slow: '700ms'
+    })
+    expect(easing).toEqual({
+      standard: 'cubic-bezier(0.51, 0.09, 0, 0.88)'
+    })
+    expect(css).not.toContain('--duration-micro:')
+    expect(css).not.toContain('--duration-ambient:')
+    expect(css).not.toContain('--easing-enter:')
   })
 
   it('emits fluid font-size vars', () => {

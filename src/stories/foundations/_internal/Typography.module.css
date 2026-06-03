@@ -1,0 +1,143 @@
+.specimenGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-grid-gutter-md);
+}
+
+.specimen {
+  display: grid;
+  gap: var(--space-stack-default);
+  min-inline-size: 0;
+  padding: var(--space-5);
+  background: var(--color-surface-raised);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.specimenSample {
+  overflow-wrap: anywhere;
+  color: var(--color-text-default);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-h1);
+}
+
+.specimenMeta {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tokenGroup {
+  display: grid;
+  gap: var(--space-stack-tight);
+  padding-block-start: var(--space-stack-default);
+  border-block-start: var(--border-thin) solid var(--color-border-subtle);
+}
+
+.tokenRows {
+  display: grid;
+  gap: var(--space-stack-tight);
+}
+
+.tokenRow {
+  display: grid;
+  grid-template-columns: minmax(120px, .25fr) minmax(160px, .35fr) minmax(0, 1fr);
+  gap: var(--space-grid-gutter-md);
+  align-items: center;
+  min-inline-size: 0;
+  padding-block: var(--space-3);
+  border-block-start: var(--border-hairline) solid var(--color-border-subtle);
+}
+
+.tokenName,
+.tokenValue,
+.roleDetailTerm,
+.roleDetailValue {
+  overflow-wrap: anywhere;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-meta);
+}
+
+.tokenName,
+.roleDetailTerm {
+  color: var(--color-text-default);
+}
+
+.tokenValue,
+.roleDetailValue {
+  color: var(--color-text-muted);
+}
+
+.sizePreview,
+.lineHeightPreview,
+.trackingPreview,
+.weightPreview {
+  overflow-wrap: anywhere;
+  color: var(--color-text-default);
+}
+
+.sizePreview {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-ultrabold);
+  line-height: var(--lh-h2);
+}
+
+.lineHeightPreview,
+.trackingPreview,
+.weightPreview {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+}
+
+.lineHeightPreview {
+  display: block;
+  max-inline-size: 42ch;
+}
+
+.roleRows {
+  display: grid;
+  gap: var(--space-stack-default);
+}
+
+.roleRow {
+  display: grid;
+  grid-template-columns: minmax(180px, .32fr) minmax(0, 1fr);
+  gap: var(--space-grid-gutter-md);
+  align-items: start;
+  min-inline-size: 0;
+  padding-block: var(--space-stack-default);
+  border-block-start: var(--border-thin) solid var(--color-border-subtle);
+}
+
+.roleDetails {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+}
+
+.roleDetail {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.roleDetailTerm,
+.roleDetailValue {
+  margin: 0;
+}
+
+.roleSample {
+  min-inline-size: 0;
+}
+
+@media (width < 760px) {
+  .specimenGrid,
+  .tokenRow,
+  .roleRow {
+    grid-template-columns: 1fr;
+  }
+
+  .specimen {
+    padding: var(--space-4);
+  }
+}

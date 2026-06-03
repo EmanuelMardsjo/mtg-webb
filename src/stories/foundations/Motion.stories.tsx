@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Section, Container, Stack, Text, Image } from '@system/primitives'
 import { useReveal, useScrollFade } from '@system/hooks'
@@ -8,31 +9,40 @@ export default meta
 
 type S = StoryObj
 
-export const Tokens: S = {
-  render: () => (
+function TokensDemo() {
+  const [playCount, setPlayCount] = useState(0)
+
+  return (
     <Section spacing="lg">
       <Container>
         <Stack gap="xl">
           <Text role="display" as="h1">Motion tokens</Text>
 
-          <Stack gap="default">
+          <Stack gap="default" align="start">
             <Text role="h2">Durations</Text>
+            <button type="button" className="motion-token-play" onClick={() => setPlayCount(c => c + 1)}>
+              Play
+            </button>
             {Object.entries(duration).map(([k, v]) => (
               <Stack key={k} gap="tight">
                 <Text role="meta">--duration-{k} · {v as string}</Text>
-                <div style={{
-                  height: '24px',
-                  width: '40%',
-                  background: 'var(--color-accent-line)',
-                  borderRadius: 'var(--radius-sm)',
-                  animation: `slide ${v as string} var(--easing-standard) infinite alternate`
-                }} />
+                <div className="motion-duration-track">
+                  <div
+                    key={`${k}-${playCount}`}
+                    className="motion-duration-bar"
+                    style={{
+                      animation: playCount > 0
+                        ? `motion-token-slide ${v as string} var(--easing-standard) 1 both`
+                        : undefined
+                    }}
+                  />
+                </div>
               </Stack>
             ))}
           </Stack>
 
           <Stack gap="default">
-            <Text role="h2">Easings</Text>
+            <Text role="h2">Easing</Text>
             {Object.entries(easing).map(([k, v]) => (
               <Stack key={k} gap="tight">
                 <Text role="meta">--easing-{k}</Text>
@@ -42,7 +52,42 @@ export const Tokens: S = {
           </Stack>
 
           <style>{`
-            @keyframes slide {
+            .motion-token-play {
+              min-height: 40px;
+              padding: var(--space-3) var(--space-4);
+              border: var(--border-hairline) solid var(--color-border-default);
+              border-radius: var(--radius-sm);
+              background: var(--color-surface-raised);
+              color: var(--color-text-default);
+              font-family: var(--font-display);
+              font-size: var(--fs-md);
+              line-height: var(--lh-button);
+              font-weight: var(--fw-display-ultrabold);
+              transition:
+                background-color var(--motion-hover-duration) var(--motion-hover-easing),
+                color var(--motion-hover-duration) var(--motion-hover-easing),
+                border-color var(--motion-hover-duration) var(--motion-hover-easing);
+            }
+
+            .motion-token-play:hover {
+              border-color: var(--color-accent-line);
+              background: var(--color-surface-page);
+            }
+
+            .motion-duration-track {
+              width: min(100%, 560px);
+              padding-block: var(--space-2);
+            }
+
+            .motion-duration-bar {
+              height: 24px;
+              width: 40%;
+              background: var(--color-accent-line);
+              border-radius: var(--radius-sm);
+              transform: translateX(0);
+            }
+
+            @keyframes motion-token-slide {
               from { transform: translateX(0); }
               to   { transform: translateX(60%); }
             }
@@ -51,6 +96,10 @@ export const Tokens: S = {
       </Container>
     </Section>
   )
+}
+
+export const Tokens: S = {
+  render: () => <TokensDemo />
 }
 
 function RevealDemo() {
