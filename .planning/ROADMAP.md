@@ -15,7 +15,7 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Live-the-life Feature block** - Themed media-frame feature with scroll reveal (completed 2026-06-03)
-- [ ] **Phase 2: Footer + CTA block** - Runway lead-in + footer zone with one dominant CTA (variant a)
+- [x] **Phase 2: Footer + CTA block** - Runway lead-in + footer zone with one dominant CTA (variant a) (completed 2026-06-03)
 - [ ] **Phase 3: Crash Course block** - Horizontal scroll-snap card rail with dots/keyboard nav (variant C)
 - [ ] **Phase 4: Resident Stories block** - Sticky scroll-driven story sequence with progress fill
 
@@ -49,7 +49,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — FooterCtaContent type + FooterCta component (runway + amber footer zone + CTA pill + footer chrome, wired to useReveal)
-- [ ] 02-02-PLAN.md — CSS module (token-only pill/button/frame/footer grid/reveal) + story (amber + amber-deep) + test + barrel
+- [x] 02-02-PLAN.md — CSS module (token-only pill/button/frame/footer grid/reveal) + story (amber + amber-deep) + test + barrel
 
 ### Phase 3: Crash Course block
 **Goal**: Adapt `crash-c` (variant C) into a DS example — a horizontal scroll-snap card rail with dot indicators and keyboard navigation.
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 2. Footer + CTA | v1.1 | 1/2 | In Progress|  |
+| 2. Footer + CTA | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |

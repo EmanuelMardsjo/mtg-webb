@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: MTG Block Import
-status: executing
-last_updated: "2026-06-03T12:07:25.040Z"
+status: verifying
+last_updated: "2026-06-03T12:12:49.112Z"
 last_activity: 2026-06-03
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
-  percent: 25
+  completed_plans: 4
+  percent: 50
 ---
 
 # Project State
@@ -26,10 +26,10 @@ See: .planning/PROJECT.md (updated 2026-06-03)
 
 Phase: 2 (Footer + CTA block) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-06-03
 
-Progress: [████████░░] 75%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -48,6 +48,7 @@ Progress: [████████░░] 75%
 | Phase 1 P01 | 8min | 2 tasks | 3 files |
 | Phase 1 P02 | 12 | 3 tasks | 6 files |
 | Phase 2 P01 | 10 | 2 tasks | 2 files |
+| Phase 2 P2 | 12m | 3 tasks | 4 files |
 
 ### Decisions
 
@@ -58,6 +59,8 @@ Decisions are logged in PROJECT.md Key Decisions table. Recent:
 - Milestone: One phase per block; sequence simple→complex interaction
 - [Phase ?]: Plan 01-01: useParallax adopts useMagneticLean isReduced() (class + media query) so Storybook reduced-motion toolbar disables parallax; output via style.setProperty only (no re-renders)
 - [Phase ?]: Plan 01-02: FeatureSpotlight carries --rise-d stagger on plain wrappers (Text accepts no style prop) and uses aria-label on the root (Text exposes no id)
+- [Phase ?]: FooterCta footBar border uses --border-hairline + --color-border-strong (no --border-subtle token)
+- [Phase ?]: Token-only hover lift: translateY(calc(var(--space-1) * -0.5)) instead of raw -2px
 
 ### Pending Todos
 
@@ -75,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-03T11:42:05.855Z
+Last session: 2026-06-03T12:12:43.428Z
 Stopped at: Scaffolded milestone; ready to run /gsd-ui-phase 1
 Resume file: None
