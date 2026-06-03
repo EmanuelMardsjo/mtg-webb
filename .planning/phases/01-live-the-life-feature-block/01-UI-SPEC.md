@@ -1,10 +1,11 @@
 ---
 phase: 1
 slug: live-the-life-feature-block
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-06-03
+reviewed_at: 2026-06-03
 ---
 
 # Phase 1 — UI Design Contract
@@ -22,7 +23,7 @@ created: 2026-06-03
 | Tech | Vanilla HTML + CSS + IIFE JS | React 18 + TS + CSS Modules |
 | Markup | `.feature > .feature__inner > {.editorial, .feature__reveal > .feature__frame > .feature__img}` | `Section` → `Container` → centered editorial `Stack` + media frame |
 | Reveal | Custom `IntersectionObserver` + `.rise`/`.anim-ready`/`.is-revealed` classes | `useReveal()` hook (`@system/hooks`) |
-| Parallax | rAF smoothed 3-layer parallax (text/frame/image) + `window.scroll` listener | **DROPPED for v1** — see Decision D-4 |
+| Parallax | rAF smoothed 3-layer parallax (text/frame/image) + `window.scroll` listener | **PORTED (D-4 revised by user)** — recreate as a reusable `useParallax` hook in `@system/hooks`; rAF-smoothed, disabled under `prefers-reduced-motion`. See Motion section. |
 | Ambient theme swap | JS rewrites `document.body[data-theme]` as block enters viewport | **DROPPED for v1** — theme applied locally via `Section theme` prop. See Decision D-3 |
 | CTA | Solid filled pill `<a>` | New filled-pill style local to the block (DS has no filled-link primitive). See Decision D-2 |
 
@@ -98,11 +99,11 @@ The DS spacing scale is fixed by `src/tokens/semantic/space.ts` (8-point family)
 |-------|-------|-------|
 | `--space-section-y-lg` | 128px | Section top rhythm (source `.feature` `padding-top: section-y-lg`) |
 | `--space-section-y-md` | 96px | Section vertical rhythm < 768px |
-| `--space-content-gap` | 24px | Gap between editorial column and media frame (source `.feature__inner gap`) |
-| `--space-stack-loose` | 32px (`space[5]`) | Vertical rhythm inside the editorial column (eyebrow→headline→lead→CTA). Mirrors source `gap: stack-loose`. |
+| `--space-content-gap` | 32px (`space[6]`) | Gap between editorial column and media frame (source `.feature__inner gap`) |
+| `--space-stack-loose` | 24px (`space[5]`) | Vertical rhythm inside the editorial column (eyebrow→headline→lead→CTA). Mirrors source `gap: stack-loose`. |
 | `--space-inline-default` | 8px | CTA label → arrow icon gap |
 | `--space-3` / `--space-5` | 12px / 24px | CTA pill padding (`12px` block, `24px` inline) — mirrors source `.editorial__cta` padding |
-| `--space-container-pad-{sm,md,lg}` | 16 / 24 / 32px | Responsive horizontal padding (via Container/Section) |
+| `--space-container-pad-{sm,md,lg}` | 16 / 32 / 64px (`space[4]/space[6]/space[8]`) | Responsive horizontal padding (via Container/Section) |
 
 Exceptions: **none.** All spacing flows through existing semantic space tokens. No bespoke px gaps.
 
@@ -152,7 +153,7 @@ Within the `pink-soft` theme the 60/30/10 reads as:
 |---|---|---|
 | Entrance reveal | `IntersectionObserver` adds `is-revealed`; `.rise` elements fade + translateY in, staggered by `--rise-d` (0/90/180/270/360ms) | Use **`useReveal()`** from `@system/hooks`. Apply a `revealed` class on the block root; children carry block-local `.rise` + per-child `--rise-d` stagger via inline `style`. Transition uses `--duration-slow` + standard easing (matches `motion.reveal` role). Visible end-state is the **base** style; the hidden pre-state only applies when JS has run AND motion is allowed. |
 | Stagger order | eyebrow → headline → lead → CTA → media | same order; media travels slightly further (source `64px` vs `34px`) for a layered arrival |
-| 3-layer parallax | rAF smoothed text/frame/image drift | **DROPPED (D-4).** Not reproduced in v1. No equivalent DS hook ships smoothed multi-layer parallax, and the brand guardrail is "restrained, purposeful motion." The image keeps a slight vertical bleed (`object-fit: cover`, frame `overflow: clip`) so the static crop still reads premium. Parallax may return as a later enhancement using a dedicated hook. |
+| 3-layer parallax | rAF smoothed text/frame/image drift | **PORTED (D-4 revised by user).** Recreate as a new reusable hook `useParallax` in `@system/hooks` (sibling to `useReveal`/`useScrollFade`). Hook: subscribes to scroll via a single rAF-throttled listener, returns a smoothed progress/offset value, and exposes per-layer drift through CSS custom properties (e.g. `--parallax-text`, `--parallax-frame`, `--parallax-img`) set on the block root. Drift magnitudes stay restrained (small translateY only — no scale/rotate) to honor the brand motion guardrail. Hook guards `window`/`matchMedia` and ships its own `useParallax.test.tsx`. **Disabled (returns zero offsets, no listener) under `prefers-reduced-motion`** so the block is fully static — required by REQ-04. |
 | Reduced motion | `reduce` → instantly `is-revealed`, no rAF | `useReveal` already returns `revealed: true` at mount under `prefers-reduced-motion`; block CSS additionally guards `.rise` transitions inside `@media (prefers-reduced-motion: reduce)` so content is fully visible and static. **Required by REQ-04 + success criterion 2.** |
 
 ---
@@ -193,10 +194,10 @@ Copy is authored content (lives in fixtures / `content` prop), seeded from the s
 
 | ID | Decision | Recommendation | Status |
 |----|----------|----------------|--------|
-| D-1 | Component name | `FeatureSpotlight` (alt: `LiveTheLifeFeature`) | Recommended, confirm in plan |
+| D-1 | Component name | `FeatureSpotlight` | **CONFIRMED by user** (descriptive DS names: FeatureSpotlight, FooterCta, CrashCourseRail, ResidentStories) |
 | D-2 | CTA primitive | DS has no filled-pill link → add block-local pill style (do NOT add a new shared primitive for one block) | Recommended |
 | D-3 | Theme application | `theme` prop on `Section` (local), NOT ambient `document.body` mutation. Faithful enough; avoids global side-effects + matches DS theming model | Recommended |
-| D-4 | Parallax | Drop smoothed 3-layer parallax in v1; keep rise-in reveal only. Honors restrained-motion guardrail; revisit later | Recommended |
+| D-4 | Parallax | **REVISED by user → PORT the parallax.** Recreate the smoothed 3-layer parallax via a new reusable `useParallax` hook, restrained drift only, disabled under reduced-motion (REQ-04) | Confirmed by user |
 
 ---
 
