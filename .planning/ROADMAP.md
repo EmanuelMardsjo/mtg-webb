@@ -16,7 +16,7 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
 
 - [x] **Phase 1: Live-the-life Feature block** - Themed media-frame feature with scroll reveal (completed 2026-06-03)
 - [x] **Phase 2: Footer + CTA block** - Runway lead-in + footer zone with one dominant CTA (variant a) (completed 2026-06-03)
-- [ ] **Phase 3: Crash Course block** - Horizontal scroll-snap card rail with dots/keyboard nav (variant C)
+- [x] **Phase 3: Crash Course block** - Horizontal scroll-snap card rail with dots/keyboard nav (variant C) (completed 2026-06-03)
 - [ ] **Phase 4: Resident Stories block** - Sticky scroll-driven story sequence with progress fill
 
 ## Phase Details
@@ -64,7 +64,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — CrashCourseRailContent type + CrashCourseRail component (header/useReveal + scroll-snap rail + card href switch + dot nav + prev/next + component-local activeIndex + keyboard)
-- [ ] 03-02-PLAN.md — CSS module (token-only scroll-snap rail + card fill/scrim + active-dot pill + nav + reduced-motion) + stories (8 + 3 cards) + accessibility-contract test + barrel
+- [x] 03-02-PLAN.md — CSS module (token-only scroll-snap rail + card fill/scrim + active-dot pill + nav + reduced-motion) + stories (8 + 3 cards) + accessibility-contract test + barrel
 
 ### Phase 4: Resident Stories block
 **Goal**: Adapt `mtg-story` into a DS example — a sticky scroll-driven story sequence with a progress fill indicator.
@@ -89,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 2. Footer + CTA | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 3. Crash Course | v1.1 | 1/2 | In Progress|  |
+| 3. Crash Course | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |

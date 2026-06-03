@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: MTG Block Import
-status: executing
-last_updated: "2026-06-03T12:53:18.193Z"
+status: verifying
+last_updated: "2026-06-03T12:59:46.834Z"
 last_activity: 2026-06-03
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 6
-  completed_plans: 5
-  percent: 50
+  completed_plans: 6
+  percent: 75
 ---
 
 # Project State
@@ -26,10 +26,10 @@ See: .planning/PROJECT.md (updated 2026-06-03)
 
 Phase: 3 (Crash Course block) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-06-03
 
-Progress: [████████░░] 83%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Progress: [████████░░] 83%
 | Phase 2 P01 | 10 | 2 tasks | 2 files |
 | Phase 2 P2 | 12m | 3 tasks | 4 files |
 | Phase 3 P1 | 7 | 2 tasks | 2 files |
+| Phase 03 P02 | ~9m | 2 tasks | 4 files |
 
 ### Decisions
 
@@ -64,6 +65,7 @@ Decisions are logged in PROJECT.md Key Decisions table. Recent:
 - [Phase ?]: Token-only hover lift: translateY(calc(var(--space-1) * -0.5)) instead of raw -2px
 - [Phase ?]: CrashCourseRail: dot nav is labelled <nav> + aria-current, not role=tablist (D-2)
 - [Phase ?]: CrashCourseRail active-index is component-local via passive rAF scrollLeft listener, no new hook (D-5)
+- [Phase ?]: Card scrim via color-mix oklch text-default 78% gradient; active dot widens to var(--space-7) pill; reduced-motion guard fully static, rail still usable (03-02)
 
 ### Pending Todos
 
@@ -81,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-03T12:52:51.525Z
+Last session: 2026-06-03T12:59:41.376Z
 Stopped at: Scaffolded milestone; ready to run /gsd-ui-phase 1
 Resume file: None
