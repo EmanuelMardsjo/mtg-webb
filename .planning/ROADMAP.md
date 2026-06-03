@@ -78,7 +78,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — ResidentStoriesContent/ResidentStory types + ResidentStories component (Section pink-soft → sticky stage + cross-faded story panels + decorative progress var + aria-hidden track of useScrollSections-registered anchors, no snap, no manual scroll math)
+- [x] 04-01-PLAN.md — ResidentStoriesContent/ResidentStory types + ResidentStories component (Section pink-soft → sticky stage + cross-faded story panels + decorative progress var + aria-hidden track of useScrollSections-registered anchors, no snap, no manual scroll math)
 - [ ] 04-02-PLAN.md — CSS module (mirror MTGNeighborhoods sticky stage + track + absolute cross-fade + scaleY progress fill + .rise stagger + <768px static stack + prefers-reduced-motion graceful degradation) + story (3 residents + different count) + accessibility-contract test + barrel
 
 ## Progress
@@ -91,4 +91,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 2. Footer + CTA | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 3. Crash Course | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 4. Resident Stories | v1.1 | 0/2 | Not started | - |
+| 4. Resident Stories | v1.1 | 1/2 | In Progress|  |
