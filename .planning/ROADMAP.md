@@ -30,10 +30,11 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
   2. The block reveals its media on scroll via `useReveal` and is static under `prefers-reduced-motion`
   3. The block uses only `@tokens` + `@system` primitives (no raw hex/px); lint passes
   4. A Storybook story renders the block and its tests pass
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD (set during plan-phase)
+- [ ] 01-01-PLAN.md — useParallax hook (rAF scroll parallax, reduced-motion guard, barrel export) + test
+- [ ] 01-02-PLAN.md — FeatureSpotlight example block (type, component, CSS module, story, test, barrel)
 
 ### Phase 2: Footer + CTA block
 **Goal**: Adapt `footer-cta` (variant a) into a DS example — a "runway" editorial lead-in plus a footer zone with one dominant CTA pill over a glow/watermark backdrop.
@@ -84,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 1. Live-the-life Feature | v1.1 | 0/TBD | Not started | - |
+| 1. Live-the-life Feature | v1.1 | 0/2 | Not started | - |
 | 2. Footer + CTA | v1.1 | 0/TBD | Not started | - |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
