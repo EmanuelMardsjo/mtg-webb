@@ -1,10 +1,11 @@
 ---
 phase: 4
 slug: resident-stories-block
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-06-03
+reviewed_at: 2026-06-03
 ---
 
 # Phase 4 — UI Design Contract
