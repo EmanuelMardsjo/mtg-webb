@@ -79,8 +79,10 @@ describe('CrashCourseRail', () => {
     render(<CrashCourseRail content={content} />)
     const nav = screen.getByRole('navigation', { name: /pagination/i })
     expect(nav).toBeInTheDocument()
+    // Each dot button is labelled "Go to {card title}" (aria-label exposed by the component).
     const dots = screen.getAllByRole('button', { name: /go to/i })
     expect(dots).toHaveLength(content.cards.length)
+    expect(screen.getByRole('button', { name: 'Go to Fika' })).toBeInTheDocument()
   })
 
   it('marks the first dot aria-current at mount and no other', () => {
