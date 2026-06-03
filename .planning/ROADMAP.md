@@ -14,7 +14,7 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Live-the-life Feature block** - Themed media-frame feature with scroll reveal
+- [x] **Phase 1: Live-the-life Feature block** - Themed media-frame feature with scroll reveal (completed 2026-06-03)
 - [ ] **Phase 2: Footer + CTA block** - Runway lead-in + footer zone with one dominant CTA (variant a)
 - [ ] **Phase 3: Crash Course block** - Horizontal scroll-snap card rail with dots/keyboard nav (variant C)
 - [ ] **Phase 4: Resident Stories block** - Sticky scroll-driven story sequence with progress fill
@@ -34,7 +34,7 @@ Import and adapt the four MTG-blocks design explorations into the repo design sy
 
 Plans:
 - [x] 01-01-PLAN.md — useParallax hook (rAF scroll parallax, reduced-motion guard, barrel export) + test
-- [ ] 01-02-PLAN.md — FeatureSpotlight example block (type, component, CSS module, story, test, barrel)
+- [x] 01-02-PLAN.md — FeatureSpotlight example block (type, component, CSS module, story, test, barrel)
 
 ### Phase 2: Footer + CTA block
 **Goal**: Adapt `footer-cta` (variant a) into a DS example — a "runway" editorial lead-in plus a footer zone with one dominant CTA pill over a glow/watermark backdrop.
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 1. Live-the-life Feature | v1.1 | 1/2 | In Progress|  |
+| 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 2. Footer + CTA | v1.1 | 0/TBD | Not started | - |
 | 3. Crash Course | v1.1 | 0/TBD | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
