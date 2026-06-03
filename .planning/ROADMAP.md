@@ -2,7 +2,7 @@
 
 ## Milestones
 
-- 🚧 **v1.1 MTG Block Import** — Phases 1-4 (in progress)
+- ✅ **v1.1 MTG Block Import** — Phases 1-4 (shipped 2026-06-03)
 
 ## Overview
 
