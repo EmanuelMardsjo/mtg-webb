@@ -60,10 +60,11 @@ Plans:
   2. Rail supports pointer scroll-snap, dot navigation, and keyboard control; accessible focus order
   3. Visually faithful to variant C; uses only tokens/primitives
   4. Storybook story + passing tests
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD (set during plan-phase)
+- [ ] 03-01-PLAN.md — CrashCourseRailContent type + CrashCourseRail component (header/useReveal + scroll-snap rail + card href switch + dot nav + prev/next + component-local activeIndex + keyboard)
+- [ ] 03-02-PLAN.md — CSS module (token-only scroll-snap rail + card fill/scrim + active-dot pill + nav + reduced-motion) + stories (8 + 3 cards) + accessibility-contract test + barrel
 
 ### Phase 4: Resident Stories block
 **Goal**: Adapt `mtg-story` into a DS example — a sticky scroll-driven story sequence with a progress fill indicator.
@@ -88,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 2. Footer + CTA | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 3. Crash Course | v1.1 | 0/TBD | Not started | - |
+| 3. Crash Course | v1.1 | 0/2 | Not started | - |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
