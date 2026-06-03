@@ -1,0 +1,299 @@
+/* ResidentStories block-local styling — token-only (no raw hex / no raw px).
+   A sticky stage pins one resident story at a time while the others cross-fade
+   (the MTGNeighborhoods sticky-stage + track idiom, D-10), with a dark-ink
+   scaleY(var(--progress)) fill driven by the active index, a per-piece .rise
+   stagger (CrashCourseRail idiom), and a decorative giant quote mark.
+
+   SC#2 graceful degradation: the BASE state of every story (no `data-live`)
+   is a fully-visible, in-flow, scrollable stack — readable with no JS / before
+   mount. EVERY absolute-positioning + cross-fade hidden state is scoped behind
+   the `[data-live]` gate the component sets only after mount, so a no-JS render
+   never matches those selectors. A <768px static stack and a prefers-reduced-
+   motion static stack both OVERRIDE the gate (gate-independent) so the readable
+   stack always wins on small screens / reduced motion.
+
+   Large radii use the sanctioned calc(var(--radius-lg) * N) idiom. The only raw
+   px live inside clamp()/calc()/min()/vh sanctioned layout values (1180px inner
+   cap, 460px media cap, the 4/5 media ratio, 100vh, the quote-mark clamp). */
+
+.block {
+  position: relative;
+  padding-inline: var(--space-5);
+}
+
+/* ---------- Sticky stage: one viewport every story shares (gated) ----------
+   The base (no data-live) stage is a normal in-flow wrapper so the no-JS stack
+   reads. Only [data-live] turns it into a pinned, clipped sticky stage. */
+.stage {
+  position: relative;
+  border-radius: calc(var(--radius-lg) * 1.5);
+}
+
+[data-live] .stage {
+  position: sticky;
+  top: var(--space-5);
+  height: calc(100vh - 2 * var(--space-5));
+  max-height: calc(100vh - 2 * var(--space-5));
+  overflow: hidden;
+  border: var(--border-hairline) solid var(--color-border-subtle);
+  background: var(--color-surface-page);
+  transition:
+    background-color var(--motion-surface-swap-duration) var(--motion-surface-swap-easing),
+    border-color var(--motion-surface-swap-duration) var(--motion-surface-swap-easing);
+}
+
+/* ---------- Story panel ----------
+   BASE STATE (no data-live, no-JS / pre-mount baseline, SC#2): an in-flow,
+   fully-visible, scrollable panel. NO position:absolute, NO opacity:0 here. */
+.story {
+  position: relative;
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  padding-block: var(--space-section-y-md);
+  text-decoration: none;
+  color: var(--color-text-default);
+}
+
+/* LIVE / CROSS-FADE STATE — gated behind [data-live] (set only after mount).
+   Stack all panels in the sticky stage so one shows at a time. */
+[data-live] .stage .story {
+  position: absolute;
+  inset: 0;
+  padding-block: 0;
+  transition:
+    opacity var(--motion-surface-swap-duration) var(--motion-surface-swap-easing),
+    transform var(--motion-surface-swap-duration) var(--motion-surface-swap-easing);
+}
+
+/* Non-active panels recede (gated — never applies without data-live). */
+[data-live] .story:not(.storyActive) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(var(--space-3));
+}
+
+/* Active panel on top, interactive (gated). */
+[data-live] .storyActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  z-index: var(--z-raised);
+}
+
+/* ---------- Inner two-column layout (text + media) ---------- */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-content-gap);
+  width: min(1180px, 90vw);
+  margin-inline: auto;
+}
+
+/* Alternate which column leads, per data-side. */
+.story[data-side='left'] .inner {
+  flex-direction: row-reverse;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack-loose);
+  max-width: 30ch;
+}
+
+/* ---------- Per-piece staggered rise ----------
+   Visible end-state is the base (so the no-JS / pre-mount stack shows content).
+   The hidden pre-state is ALSO gated behind [data-live] and rides the non-active
+   panel, so without data-live every .rise piece stays visible. */
+.rise {
+  transition:
+    opacity var(--motion-reveal-duration) var(--motion-reveal-easing) var(--rise-d, 0ms),
+    transform var(--motion-reveal-duration) var(--motion-reveal-easing) var(--rise-d, 0ms);
+}
+
+[data-live] .story:not(.storyActive) .rise {
+  opacity: 0;
+  transform: translateY(var(--space-3));
+}
+
+/* ---------- Quote + decorative giant open-quote mark ---------- */
+.quote {
+  position: relative;
+}
+
+.mark {
+  display: block;
+  font-size: clamp(64px, 9vw, 132px);
+  line-height: 0.62;
+  color: var(--color-text-default);
+  margin-bottom: calc(var(--space-3) * -1);
+  user-select: none;
+}
+
+/* ---------- Linked-only "Read story" affordance ---------- */
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-inline-default);
+  color: var(--color-text-default);
+}
+
+/* ---------- Media figure (FeatureSpotlight .frame idiom + fill override) ---------- */
+.media {
+  margin: 0;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  border-radius: calc(var(--radius-lg) * 1.5);
+  overflow: clip;
+  background: var(--color-surface-raised);
+}
+
+/* REQUIRED fill override — Image ships height:auto; this makes it cover. */
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Progress indicator: thin vertical bar, dark-ink scaleY fill ----------
+   Decorative (D-4). The track is a faint dark wash; the fill is the dark
+   editorial ink (--color-text-default), NOT the pink accent line. */
+.progress {
+  position: absolute;
+  inset-block: var(--space-6);
+  inset-inline-start: var(--space-5);
+  width: var(--space-1);
+  background: color-mix(in oklch, var(--color-text-default) 16%, transparent);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  z-index: var(--z-raised);
+}
+
+.progressFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(var(--progress, 0));
+  transform-origin: top;
+  background: var(--color-text-default);
+  border-radius: var(--radius-pill);
+  transition: transform var(--motion-state-change-duration) var(--motion-state-change-easing);
+}
+
+/* ---------- Tall scroll track: one viewport per story drives activeId ---------- */
+.track {
+  display: flex;
+  flex-direction: column;
+}
+
+.anchor {
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* ---------- <768px static stack (gate-independent) ----------
+   Falls to the readable single-column stack regardless of data-live: the dual
+   `[data-live] .stage .story, .story` selector beats the gated live rule. */
+@media (width < 768px) {
+  .stage {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .track,
+  .progress {
+    display: none;
+  }
+
+  /* Gate-INDEPENDENT override: the bare `.story` must beat the earlier
+     `[data-live] .stage .story` live rule so the static stack wins with or
+     without data-live. The intentional descending specificity is the mechanism. */
+  /* stylelint-disable no-descending-specificity */
+  [data-live] .stage .story,
+  .story {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    padding-block: var(--space-section-y-md);
+  }
+
+  [data-live] .story:not(.storyActive) .rise,
+  .rise {
+    opacity: 1;
+    transform: none;
+  }
+  /* stylelint-enable no-descending-specificity */
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .story[data-side='left'] .inner {
+    flex-direction: column;
+  }
+
+  .media {
+    order: -1;
+  }
+}
+
+/* ---------- Reduced motion: static stack, gate-independent (SC#2 canonical) ----------
+   Overrides the gated rules so the readable stack holds whether or not data-live
+   is set: no pinning, no cross-fade, no rise, no progress. */
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .track {
+    height: auto;
+  }
+
+  /* Gate-INDEPENDENT override (see <768px note): static stack wins regardless
+     of data-live; the intentional descending specificity is the mechanism. */
+  /* stylelint-disable no-descending-specificity */
+  [data-live] .stage .story,
+  .story {
+    position: relative;
+    inset: auto;
+    opacity: 1 !important;
+    pointer-events: auto;
+    transform: none !important;
+    padding-block: var(--space-section-y-md);
+    transition: none !important;
+  }
+
+  [data-live] .story:not(.storyActive) .rise,
+  .rise {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* stylelint-enable no-descending-specificity */
+
+  .media img {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .progressFill {
+    transition: none !important;
+  }
+
+  .progress {
+    display: none;
+  }
+}
