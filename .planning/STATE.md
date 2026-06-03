@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: MTG Block Import
-status: verifying
-last_updated: "2026-06-03T12:12:49.112Z"
+status: executing
+last_updated: "2026-06-03T12:53:18.193Z"
 last_activity: 2026-06-03
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
   percent: 50
 ---
 
@@ -20,16 +20,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-03)
 
 **Core value:** Every page section is a token-driven, accessible, premium-editorial block — never ad-hoc styling.
-**Current focus:** Phase 2 — Footer + CTA block
+**Current focus:** Phase 3 — Crash Course block
 
 ## Current Position
 
-Phase: 2 (Footer + CTA block) — EXECUTING
+Phase: 3 (Crash Course block) — EXECUTING
 Plan: 2 of 2
-Status: Phase complete — ready for verification
+Status: Ready to execute
 Last activity: 2026-06-03
 
-Progress: [██████████] 100%
+Progress: [████████░░] 83%
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Progress: [██████████] 100%
 | Phase 1 P02 | 12 | 3 tasks | 6 files |
 | Phase 2 P01 | 10 | 2 tasks | 2 files |
 | Phase 2 P2 | 12m | 3 tasks | 4 files |
+| Phase 3 P1 | 7 | 2 tasks | 2 files |
 
 ### Decisions
 
@@ -61,6 +62,8 @@ Decisions are logged in PROJECT.md Key Decisions table. Recent:
 - [Phase ?]: Plan 01-02: FeatureSpotlight carries --rise-d stagger on plain wrappers (Text accepts no style prop) and uses aria-label on the root (Text exposes no id)
 - [Phase ?]: FooterCta footBar border uses --border-hairline + --color-border-strong (no --border-subtle token)
 - [Phase ?]: Token-only hover lift: translateY(calc(var(--space-1) * -0.5)) instead of raw -2px
+- [Phase ?]: CrashCourseRail: dot nav is labelled <nav> + aria-current, not role=tablist (D-2)
+- [Phase ?]: CrashCourseRail active-index is component-local via passive rAF scrollLeft listener, no new hook (D-5)
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-03T12:12:43.428Z
+Last session: 2026-06-03T12:52:51.525Z
 Stopped at: Scaffolded milestone; ready to run /gsd-ui-phase 1
 Resume file: None

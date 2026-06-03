@@ -63,7 +63,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — CrashCourseRailContent type + CrashCourseRail component (header/useReveal + scroll-snap rail + card href switch + dot nav + prev/next + component-local activeIndex + keyboard)
+- [x] 03-01-PLAN.md — CrashCourseRailContent type + CrashCourseRail component (header/useReveal + scroll-snap rail + card href switch + dot nav + prev/next + component-local activeIndex + keyboard)
 - [ ] 03-02-PLAN.md — CSS module (token-only scroll-snap rail + card fill/scrim + active-dot pill + nav + reduced-motion) + stories (8 + 3 cards) + accessibility-contract test + barrel
 
 ### Phase 4: Resident Stories block
@@ -89,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|-----------|----------------|--------|-----------|
 | 1. Live-the-life Feature | v1.1 | 2/2 | Complete   | 2026-06-03 |
 | 2. Footer + CTA | v1.1 | 2/2 | Complete   | 2026-06-03 |
-| 3. Crash Course | v1.1 | 0/2 | Not started | - |
+| 3. Crash Course | v1.1 | 1/2 | In Progress|  |
 | 4. Resident Stories | v1.1 | 0/TBD | Not started | - |
