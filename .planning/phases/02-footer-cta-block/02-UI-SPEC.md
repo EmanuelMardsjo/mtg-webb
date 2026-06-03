@@ -1,10 +1,11 @@
 ---
 phase: 2
 slug: footer-cta-block
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-06-03
+reviewed_at: 2026-06-03
 ---
 
 # Phase 2 — UI Design Contract
