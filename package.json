@@ -12,7 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "tokens:build": "tsx src/tokens/build.ts",
+    "fetch:image": "tsx scripts/fetch-wikimedia-image.ts",
     "storybook": "storybook dev -p 6006",
+    "prebuild-storybook": "npm run tokens:build",
     "build-storybook": "storybook build"
   },
   "dependencies": {
